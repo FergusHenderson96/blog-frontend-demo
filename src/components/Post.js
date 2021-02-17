@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
+import moment from "moment";
 
-const Post = ({post}) => {
+const Post = ({post, user}) => {
     return (
         <Container>
           <h1>{post.title}</h1>  
           <p>{post.content}</p>
-          <p>{post.createdAt}</p>
+          <p>Written by {user.name}</p>
+          <p>{moment.utc(post.createdAt).fromNow()}</p>
+          
         </Container>
     ) 
 }
